@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+pydantic
+sqlalchemy
+pycryptodome
+paho-mqtt
+pyjwt
+requests
+cryptography

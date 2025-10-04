@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q-Shield Authentication</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
+    <style>
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        .title-glitch {
+            font-family: 'Orbitron', sans-serif;
+            text-shadow: 0 0 5px #00aaff, 0 0 10px #00aaff, 0 0 20px #00aaff, 0 0 40px #00aaff;
+            animation: glitch 1.5s infinite linear;
+        }
+        @keyframes glitch {
+            0%, 100% {
+                text-shadow: 0 0 5px #00aaff, 0 0 10px #00aaff, 0 0 20px #00aaff, 0 0 40px #00aaff;
+            }
+            50% {
+                text-shadow: 0 0 10px #ff0055, 0 0 20px #ff0055;
+            }
+        }
+    </style>
+</head>
+<body class="bg-[#0a0e17] flex items-center justify-center min-h-screen">
+
+    <div id="particles-js"></div>
+
+    <div class="relative z-10 w-full max-w-md p-8 space-y-8 bg-slate-900/70 backdrop-blur-xl rounded-2xl shadow-2xl border border-blue-500/30">
+        <div>
+            <h1 class="text-4xl font-bold text-center text-cyan-400 tracking-wider title-glitch">Q-SHIELD</h1>
+            <p class="mt-2 text-center text-sm text-gray-400">Operator Authentication Required</p>
+        </div>
+        <form id="login-form" class="space-y-6">
+            <div>
+                <label for="username" class="text-sm font-bold text-gray-300 tracking-wide">Username</label>
+                <input id="username" name="username" type="text" autocomplete="username" required value="operator_01"
+                    class="mt-1 block w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg text-gray-200 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition">
+            </div>
+
+            <div>
+                <label for="password" class="text-sm font-bold text-gray-300 tracking-wide">Password</label>
+                <input id="password" name="password" type="password" autocomplete="current-password" required value="password"
+                    class="mt-1 block w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg text-gray-200 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition">
+            </div>
+
+            <div>
+                <button type="submit"
+                    class="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-cyan-600 hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-900 focus:ring-cyan-500 transition-all duration-300 ease-in-out group">
+                    <span class="group-hover:hidden">Authenticate</span>
+                    <span class="hidden group-hover:block">Accessing Grid...</span>
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        particlesJS("particles-js", {
+            "particles": {
+                "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+                "color": { "value": "#00aaff" },
+                "shape": { "type": "circle" },
+                "opacity": { "value": 0.5, "random": false },
+                "size": { "value": 3, "random": true },
+                "line_linked": { "enable": true, "distance": 150, "color": "#00aaff", "opacity": 0.4, "width": 1 },
+                "move": { "enable": true, "speed": 2, "direction": "none", "random": false, "straight": false, "out_mode": "out", "bounce": false }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": { "onhover": { "enable": true, "mode": "repulse" }, "onclick": { "enable": true, "mode": "push" }, "resize": true },
+                "modes": { "repulse": { "distance": 100, "duration": 0.4 }, "push": { "particles_nb": 4 } }
+            },
+            "retina_detect": true
+        });
+
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            window.location.href = 'dashboard.html';
+        });
+    </script>
+</body>
+</html>

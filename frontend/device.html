@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q-Shield | Device Management</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Roboto+Mono&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto Mono', monospace;
+            background-color: #0a0e17;
+            animation: background-pan 15s linear infinite;
+            background-image: radial-gradient(at 10% 10%, hsla(202,100%,50%,0.2) 0px, transparent 50%), 
+                              radial-gradient(at 90% 90%, hsla(280,100%,50%,0.2) 0px, transparent 50%);
+            background-size: 200% 200%;
+        }
+        @keyframes background-pan { 0% { background-position: 0% 0%; } 50% { background-position: 100% 100%; } 100% { background-position: 0% 0%; } }
+        .title-glitch { font-family: 'Orbitron', sans-serif; }
+        .modal { transition: opacity 0.25s ease; }
+        .modal-content { transition: transform 0.25s ease; }
+    </style>
+</head>
+<body class="text-gray-300">
+    <div class="container mx-auto p-4 sm:p-8">
+        <header class="flex items-center justify-between mb-8">
+            <div class="flex items-center">
+                <a href="index.html" class="p-2 mr-4 rounded-full bg-slate-900/50 hover:bg-cyan-600/50 transition-colors">
+                    <svg class="w-6 h-6 text-cyan-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" /></svg>
+                </a>
+                <h1 class="text-3xl md:text-4xl font-bold text-cyan-400 tracking-wider title-glitch">DEVICE FLEET</h1>
+            </div>
+        </header>
+
+        <div class="mb-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+             <div class="relative w-full sm:max-w-xs">
+                <input type="text" placeholder="Search devices..." class="w-full pl-10 pr-4 py-2 bg-slate-800/70 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500">
+                <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" /></svg>
+            </div>
+            <button onclick="openRegisterModal()" class="w-full sm:w-auto flex items-center justify-center px-5 py-2 bg-cyan-600 text-white font-semibold rounded-lg hover:bg-cyan-700 transition-colors">
+                <svg class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>
+                Register New Device
+            </button>
+        </div>
+
+        <main class="bg-slate-900/70 backdrop-blur-xl p-6 rounded-2xl border border-blue-500/30 shadow-2xl">
+            <h2 class="text-xl font-semibold text-cyan-300">Registered Devices (5/100)</h2>
+            <div class="mt-4 overflow-x-auto">
+                <table class="w-full text-sm text-left text-gray-400">
+                    <thead class="text-xs text-cyan-300 uppercase bg-black/40">
+                        <tr>
+                            <th scope="col" class="px-6 py-3">Status</th>
+                            <th scope="col" class="px-6 py-3">Device Name</th>
+                            <th scope="col" class="px-6 py-3">Decentralized ID (DID)</th>
+                            <th scope="col" class="px-6 py-3">Last Seen</th>
+                            <th scope="col" class="px-6 py-3"><span class="sr-only">Actions</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-b border-gray-700 hover:bg-gray-800/50 cursor-pointer" onclick="openDetailsModal({name: 'Sensor-Alpha-01', did: 'did:ethr:0x1234...', status: 'Online', lastSeen: 'Just now', location: '12.97° N, 77.59° E', registered: '2025-10-01', pk: '0xABC...'})">
+                            <td class="px-6 py-4"><div class="flex items-center gap-2"><div class="h-3 w-3 rounded-full bg-green-500 animate-pulse"></div><span>Online</span></div></td>
+                            <td class="px-6 py-4 font-medium text-gray-200">Sensor-Alpha-01</td>
+                            <td class="px-6 py-4 font-mono">did:ethr:0x1234...</td>
+                            <td class="px-6 py-4">Just now</td>
+                            <td class="px-6 py-4 text-right"><span class="font-medium text-cyan-400 hover:underline">Details</span></td>
+                        </tr>
+                        <tr class="border-b border-gray-700 hover:bg-gray-800/50 cursor-pointer" onclick="openDetailsModal({name: 'Sensor-Beta-02', did: 'did:ethr:0x5678...', status: 'Alert', lastSeen: '2 min ago', location: 'Out of Geofence', registered: '2025-09-28', pk: '0xDEF...'})">
+                            <td class="px-6 py-4"><div class="flex items-center gap-2"><div class="h-3 w-3 rounded-full bg-red-500 animate-pulse"></div><span class="text-red-400">Alert</span></div></td>
+                            <td class="px-6 py-4 font-medium text-gray-200">Sensor-Beta-02</td>
+                            <td class="px-6 py-4 font-mono">did:ethr:0x5678...</td>
+                            <td class="px-6 py-4">2 min ago</td>
+                            <td class="px-6 py-4 text-right"><span class="font-medium text-cyan-400 hover:underline">Details</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <div id="registrationModal" class="modal fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 pointer-events-none">
+        </div>
+
+    <div id="detailsModal" class="modal fixed inset-0 bg-black/80 backdrop-blur-lg flex items-center justify-center p-4 opacity-0 pointer-events-none" onclick="closeDetailsModal()">
+        <div class="modal-content bg-slate-900 w-full max-w-2xl rounded-2xl border border-cyan-500/30 shadow-2xl transform scale-95" onclick="event.stopPropagation()">
+            <div class="flex justify-between items-center p-6 border-b border-gray-700">
+                <div class="flex items-center">
+                    <div id="modal-status-indicator" class="h-4 w-4 rounded-full mr-3"></div>
+                    <h2 id="modal-device-name" class="text-2xl font-semibold text-cyan-300"></h2>
+                </div>
+                <button onclick="closeDetailsModal()" class="text-gray-400 hover:text-white text-3xl">&times;</button>
+            </div>
+            <div class="p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <h3 class="text-lg font-bold text-gray-400 uppercase tracking-wider mb-2">Identity</h3>
+                    <div class="space-y-2 text-sm">
+                        <p><strong>DID:</strong> <span id="modal-did" class="font-mono break-all"></span></p>
+                        <p><strong>Public Key:</strong> <span id="modal-pk" class="font-mono break-all"></span></p>
+                        <p><strong>Registered:</strong> <span id="modal-registered"></span></p>
+                    </div>
+                </div>
+                 <div>
+                    <h3 class="text-lg font-bold text-gray-400 uppercase tracking-wider mb-2">Status & Location</h3>
+                    <div class="space-y-2 text-sm">
+                        <p><strong>Status:</strong> <span id="modal-status-text"></span></p>
+                        <p><strong>Last Seen:</strong> <span id="modal-last-seen"></span></p>
+                        <p><strong>Location:</strong> <span id="modal-location"></span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- Modal Control ---
+        const registrationModal = document.getElementById('registrationModal');
+        const detailsModal = document.getElementById('detailsModal');
+        
+        function openRegisterModal() { registrationModal.classList.remove('opacity-0', 'pointer-events-none'); }
+        function closeRegisterModal() { registrationModal.classList.add('opacity-0', 'pointer-events-none'); }
+
+        function openDetailsModal(device) {
+            // Populate data
+            document.getElementById('modal-device-name').innerText = device.name;
+            document.getElementById('modal-did').innerText = device.did;
+            document.getElementById('modal-pk').innerText = device.pk;
+            document.getElementById('modal-registered').innerText = device.registered;
+            document.getElementById('modal-status-text').innerText = device.status;
+            document.getElementById('modal-last-seen').innerText = device.lastSeen;
+            document.getElementById('modal-location').innerText = device.location;
+
+            // Update status indicator color
+            const statusIndicator = document.getElementById('modal-status-indicator');
+            statusIndicator.className = 'h-4 w-4 rounded-full mr-3 '; // Reset classes
+            if (device.status === 'Online') {
+                statusIndicator.classList.add('bg-green-500');
+            } else if (device.status === 'Alert') {
+                statusIndicator.classList.add('bg-red-500');
+            } else {
+                statusIndicator.classList.add('bg-yellow-500');
+            }
+            
+            // Show modal
+            detailsModal.classList.remove('opacity-0', 'pointer-events-none');
+            detailsModal.querySelector('.modal-content').classList.remove('scale-95');
+        }
+
+        function closeDetailsModal() {
+            detailsModal.querySelector('.modal-content').classList.add('scale-95');
+            detailsModal.classList.add('opacity-0', 'pointer-events-none');
+        }
+
+    </script>
+</body>
+</html>

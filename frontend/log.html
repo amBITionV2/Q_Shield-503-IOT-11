@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q-Shield | Live Logs</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Roboto+Mono&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto Mono', monospace;
+            background-color: #0a0e17;
+            animation: background-pan 15s linear infinite;
+            background-image: radial-gradient(at 20% 80%, hsla(202,100%,50%,0.2) 0px, transparent 50%), 
+                              radial-gradient(at 80% 20%, hsla(280,100%,50%,0.2) 0px, transparent 50%);
+            background-size: 200% 200%;
+        }
+
+        @keyframes background-pan {
+            0% { background-position: 0% 0%; }
+            50% { background-position: 100% 100%; }
+            100% { background-position: 0% 0%; }
+        }
+
+        .title-glitch {
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        /* Custom scrollbar for a tech look */
+        pre::-webkit-scrollbar {
+            width: 8px;
+        }
+        pre::-webkit-scrollbar-track {
+            background: rgba(0,0,0,0.2);
+            border-radius: 4px;
+        }
+        pre::-webkit-scrollbar-thumb {
+            background: #00aaff;
+            border-radius: 4px;
+        }
+        pre::-webkit-scrollbar-thumb:hover {
+            background: #0088cc;
+        }
+    </style>
+</head>
+<body class="text-gray-300">
+    <div class="container mx-auto p-4 sm:p-8">
+        <header class="flex items-center justify-between mb-8">
+            <div class="flex items-center">
+                <a href="index.html" class="p-2 mr-4 rounded-full bg-slate-900/50 hover:bg-cyan-600/50 transition-colors">
+                    <svg class="w-6 h-6 text-cyan-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" /></svg>
+                </a>
+                <h1 class="text-3xl md:text-4xl font-bold text-cyan-400 tracking-wider title-glitch">LIVE LOGS</h1>
+            </div>
+            <div class="text-sm text-gray-400">STATUS: <span class="text-green-400 font-bold">CONNECTED</span></div>
+        </header>
+
+        <main class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div class="bg-slate-900/70 backdrop-blur-xl p-6 rounded-2xl border border-blue-500/30 shadow-2xl">
+                <h2 class="text-xl font-semibold text-cyan-300 flex items-center mb-4">
+                    <svg class="w-6 h-6 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m9 9-6 6m0 0 6 6m-6-6h18m-6-6-6-6m0 0 6-6m-6 6h18" /></svg>
+                    Input Log (Raw Telemetry)
+                </h2>
+                <pre class="mt-4 text-xs bg-black/40 p-4 rounded-lg h-[60vh] overflow-y-auto">
+[2025-10-05 00:10:15] INFO: Received telemetry: {'did': 'device-a-did', 'voltage': 220.1, 'latitude': 12.971, 'longitude': 77.594}
+[2025-10-05 00:10:16] INFO: Received telemetry: {'did': 'device-c-did', 'voltage': 219.8, 'latitude': 12.972, 'longitude': 77.595}
+[2025-10-05 00:10:17] INFO: Received telemetry: {'did': 'device-b-did', 'voltage': 251.4, 'latitude': 12.970, 'longitude': 77.593}
+[2025-10-05 00:10:18] INFO: Received telemetry: {'did': 'device-d-did', 'voltage': 225.3, 'latitude': 12.971, 'longitude': 77.594}
+[2025-10-05 00:10:19] INFO: Received telemetry: {'did': 'device-e-did', 'voltage': 230.7, 'latitude': 12.972, 'longitude': 77.595}
+</pre>
+            </div>
+
+            <div class="bg-slate-900/70 backdrop-blur-xl p-6 rounded-2xl border border-blue-500/30 shadow-2xl">
+                <h2 class="text-xl font-semibold text-cyan-300 flex items-center mb-4">
+                    <svg class="w-6 h-6 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m15 15-6 6m0 0-6-6m6 6V9a6 6 0 0 1 12 0v3" /></svg>
+                    Output Log (Processed & Analyzed)
+                </h2>
+                <pre class="mt-4 text-xs bg-black/40 p-4 rounded-lg h-[60vh] overflow-y-auto">
+<span class="text-gray-400">[2025-10-05 00:10:15] INFO: Processed telemetry: {did: 'device-a-did', voltage: 220.1, geo_fence_alert: false}</span>
+<span class="text-gray-400">[2025-10-05 00:10:16] INFO: Processed telemetry: {did: 'device-c-did', voltage: 219.8, geo_fence_alert: false}</span>
+<span class="text-red-400">[2025-10-05 00:10:17] WARN: ANOMALY DETECTED: {did: 'device-b-did', voltage: 251.4, geo_fence_alert: false}</span>
+<span class="text-gray-400">[2025-10-05 00:10:18] INFO: Processed telemetry: {did: 'device-d-did', voltage: 225.3, geo_fence_alert: false}</span>
+<span class="text-gray-400">[2025-10-05 00:10:19] INFO: Processed telemetry: {did: 'device-e-did', voltage: 230.7, geo_fence_alert: false}</span>
+</pre>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // In a real application, you would use JavaScript to fetch live log data
+        // from your /api/input-log and /api/output-log endpoints and append it
+        // to the <pre> elements here.
+    </script>
+</body>
+</html>

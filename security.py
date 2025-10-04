@@ -22,7 +22,7 @@ except ImportError as e:
 JWT_SECRET = os.environ.get("JWT_SECRET", "qshield_jwt_secret")
 JWT_ALG = "HS256"
 
-# ---------------- JWT helpers ----------------
+# ♡ jWT helpers
 def create_jwt(payload: dict, expires_minutes: int = 60) -> str:
     p = payload.copy()
     p["exp"] = datetime.utcnow() + timedelta(minutes=expires_minutes)
@@ -36,7 +36,7 @@ def verify_jwt(token: str) -> dict:
     except jwt.InvalidTokenError as e:
         raise Exception(f"Invalid JWT: {e}")
 
-# ---------------- AES-GCM helpers ----------------
+# ♡ AES-GCM helpers 
 def encrypt_aes_gcm(key: bytes, plaintext: bytes) -> bytes:
     if not isinstance(key, (bytes, bytearray)):
         raise TypeError("AES key must be bytes")
@@ -52,22 +52,19 @@ def decrypt_aes_gcm(key: bytes, data: bytes) -> bytes:
     aes = AESGCM(key)
     return aes.decrypt(nonce, ct, None)
 
-# ---------------- Kyber512 helpers ----------------
+# ♡ Kyber512 helpers 
 def kyber_generate_keypair():
-    """Generate a Kyber512 keypair."""
     with oqs.KeyEncapsulation("Kyber512") as kem:
         public_key = kem.generate_keypair()
         secret_key = kem.export_secret_key()
     return public_key, secret_key
 
 def kyber_encapsulate(public_key: bytes):
-    """Encapsulate a shared secret with a given Kyber512 public key."""
     with oqs.KeyEncapsulation("Kyber512") as kem:
         ciphertext, shared_secret = kem.encap_secret(public_key)
     return ciphertext, shared_secret
 
 def kyber_decapsulate(ciphertext: bytes, secret_key: bytes):
-    """Decapsulate to get the shared secret."""
     with oqs.KeyEncapsulation("Kyber512", secret_key) as kem:
         shared_secret = kem.decap_secret(ciphertext)
     return shared_secret

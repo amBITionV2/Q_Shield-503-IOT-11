@@ -12,7 +12,7 @@ class Device(Base):
     kyber_pk = Column(String)   # Public key
     kyber_sk = Column(String)   # Secret key
 
-    # ♡ Last known telemetry fields (optional, can be null initially)
+    # ♡ Last known telemetry fields 
     latitude = Column(Float, nullable=True)
     longitude = Column(Float, nullable=True)
     altitude = Column(Float, nullable=True)

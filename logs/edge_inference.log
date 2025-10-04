@@ -1,0 +1,47 @@
+2025-10-04 21:19:42,708 [INFO] Edge Isolation Forest model loaded successfully
+2025-10-04 21:19:46,756 [INFO] Edge Isolation Forest model loaded successfully
+2025-10-04 21:19:59,480 [INFO] Edge Isolation Forest model loaded successfully
+2025-10-04 21:21:11,982 [INFO] Edge inference for 7faf01c4-1e84-47bd-9d1f-41f182d7fbf8: {'is_anomaly': False, 'score': 0.27786209356081193, 'raw_score': -0.5557241871216239}
+2025-10-04 21:21:13,002 [INFO] Edge inference for 7faf01c4-1e84-47bd-9d1f-41f182d7fbf8: {'is_anomaly': True, 'score': 0.28791505992663347, 'raw_score': -0.5758301198532669}
+2025-10-04 21:21:14,028 [INFO] Edge inference for 7faf01c4-1e84-47bd-9d1f-41f182d7fbf8: {'is_anomaly': False, 'score': 0.27839421215783927, 'raw_score': -0.5567884243156785}
+2025-10-04 21:21:15,054 [INFO] Edge inference for 7faf01c4-1e84-47bd-9d1f-41f182d7fbf8: {'is_anomaly': False, 'score': 0.2778799729235208, 'raw_score': -0.5557599458470416}
+2025-10-04 21:21:16,075 [INFO] Edge inference for 7faf01c4-1e84-47bd-9d1f-41f182d7fbf8: {'is_anomaly': False, 'score': 0.2736628276967379, 'raw_score': -0.5473256553934758}
+2025-10-04 21:21:17,093 [INFO] Edge inference for 7faf01c4-1e84-47bd-9d1f-41f182d7fbf8: {'is_anomaly': False, 'score': 0.2734491384575231, 'raw_score': -0.5468982769150462}
+2025-10-04 21:21:18,110 [INFO] Edge inference for 7faf01c4-1e84-47bd-9d1f-41f182d7fbf8: {'is_anomaly': False, 'score': 0.27650193422448077, 'raw_score': -0.5530038684489615}
+2025-10-04 21:21:19,134 [INFO] Edge inference for 7faf01c4-1e84-47bd-9d1f-41f182d7fbf8: {'is_anomaly': False, 'score': 0.27054390723835275, 'raw_score': -0.5410878144767055}
+2025-10-04 21:21:20,155 [INFO] Edge inference for 7faf01c4-1e84-47bd-9d1f-41f182d7fbf8: {'is_anomaly': True, 'score': 0.2894084197401899, 'raw_score': -0.5788168394803798}
+2025-10-04 21:21:21,175 [INFO] Edge inference for 7faf01c4-1e84-47bd-9d1f-41f182d7fbf8: {'is_anomaly': True, 'score': 0.2832207268278268, 'raw_score': -0.5664414536556536}
+2025-10-04 21:21:22,194 [INFO] Edge inference for 7faf01c4-1e84-47bd-9d1f-41f182d7fbf8: {'is_anomaly': True, 'score': 0.28823322828225934, 'raw_score': -0.5764664565645187}
+2025-10-04 21:21:23,213 [INFO] Edge inference for 7faf01c4-1e84-47bd-9d1f-41f182d7fbf8: {'is_anomaly': False, 'score': 0.2705665546890413, 'raw_score': -0.5411331093780826}
+2025-10-04 21:21:24,229 [INFO] Edge inference for 7faf01c4-1e84-47bd-9d1f-41f182d7fbf8: {'is_anomaly': True, 'score': 0.2835883395099927, 'raw_score': -0.5671766790199854}
+2025-10-04 21:21:25,252 [INFO] Edge inference for 7faf01c4-1e84-47bd-9d1f-41f182d7fbf8: {'is_anomaly': True, 'score': 0.2875891414649977, 'raw_score': -0.5751782829299954}
+2025-10-04 21:21:26,288 [INFO] Edge inference for 7faf01c4-1e84-47bd-9d1f-41f182d7fbf8: {'is_anomaly': False, 'score': 0.2776522263965009, 'raw_score': -0.5553044527930018}
+2025-10-04 21:21:27,316 [INFO] Edge inference for 7faf01c4-1e84-47bd-9d1f-41f182d7fbf8: {'is_anomaly': False, 'score': 0.27025483671332745, 'raw_score': -0.5405096734266549}
+2025-10-04 21:21:28,345 [INFO] Edge inference for 7faf01c4-1e84-47bd-9d1f-41f182d7fbf8: {'is_anomaly': False, 'score': 0.2630308190513346, 'raw_score': -0.5260616381026691}
+2025-10-04 21:21:29,365 [INFO] Edge inference for 7faf01c4-1e84-47bd-9d1f-41f182d7fbf8: {'is_anomaly': False, 'score': 0.28080758283316604, 'raw_score': -0.5616151656663321}
+2025-10-04 21:21:30,385 [INFO] Edge inference for 7faf01c4-1e84-47bd-9d1f-41f182d7fbf8: {'is_anomaly': True, 'score': 0.29148605156372076, 'raw_score': -0.5829721031274415}
+2025-10-04 21:21:31,401 [INFO] Edge inference for 7faf01c4-1e84-47bd-9d1f-41f182d7fbf8: {'is_anomaly': False, 'score': 0.2563308540098997, 'raw_score': -0.5126617080197994}
+2025-10-04 21:21:32,418 [INFO] Edge inference for 7faf01c4-1e84-47bd-9d1f-41f182d7fbf8: {'is_anomaly': False, 'score': 0.2682378136313828, 'raw_score': -0.5364756272627657}
+2025-10-04 21:21:33,440 [INFO] Edge inference for 7faf01c4-1e84-47bd-9d1f-41f182d7fbf8: {'is_anomaly': False, 'score': 0.2752454535745297, 'raw_score': -0.5504909071490593}
+2025-10-04 21:21:34,459 [INFO] Edge inference for 7faf01c4-1e84-47bd-9d1f-41f182d7fbf8: {'is_anomaly': True, 'score': 0.2886846007761979, 'raw_score': -0.5773692015523958}
+2025-10-04 21:21:35,478 [INFO] Edge inference for 7faf01c4-1e84-47bd-9d1f-41f182d7fbf8: {'is_anomaly': False, 'score': 0.27860325909523326, 'raw_score': -0.5572065181904665}
+2025-10-04 21:21:36,498 [INFO] Edge inference for 7faf01c4-1e84-47bd-9d1f-41f182d7fbf8: {'is_anomaly': False, 'score': 0.2774934276990856, 'raw_score': -0.5549868553981712}
+2025-10-04 21:21:37,518 [INFO] Edge inference for 7faf01c4-1e84-47bd-9d1f-41f182d7fbf8: {'is_anomaly': False, 'score': 0.26910683439986327, 'raw_score': -0.5382136687997265}
+2025-10-04 21:21:38,533 [INFO] Edge inference for 7faf01c4-1e84-47bd-9d1f-41f182d7fbf8: {'is_anomaly': False, 'score': 0.27973300667562095, 'raw_score': -0.5594660133512419}
+2025-10-04 21:21:39,551 [INFO] Edge inference for 7faf01c4-1e84-47bd-9d1f-41f182d7fbf8: {'is_anomaly': False, 'score': 0.277257536268216, 'raw_score': -0.554515072536432}
+2025-10-04 21:21:40,570 [INFO] Edge inference for 7faf01c4-1e84-47bd-9d1f-41f182d7fbf8: {'is_anomaly': False, 'score': 0.27894614727508005, 'raw_score': -0.5578922945501601}
+2025-10-04 21:21:41,589 [INFO] Edge inference for 7faf01c4-1e84-47bd-9d1f-41f182d7fbf8: {'is_anomaly': False, 'score': 0.2635592005178094, 'raw_score': -0.5271184010356188}
+2025-10-04 21:21:43,156 [INFO] Edge inference for 7faf01c4-1e84-47bd-9d1f-41f182d7fbf8: {'is_anomaly': False, 'score': 0.26688026167421103, 'raw_score': -0.5337605233484221}
+2025-10-04 21:21:44,229 [INFO] Edge inference for 7faf01c4-1e84-47bd-9d1f-41f182d7fbf8: {'is_anomaly': True, 'score': 0.28182814243890486, 'raw_score': -0.5636562848778097}
+2025-10-04 21:21:45,310 [INFO] Edge inference for 7faf01c4-1e84-47bd-9d1f-41f182d7fbf8: {'is_anomaly': False, 'score': 0.27674981875113597, 'raw_score': -0.5534996375022719}
+2025-10-04 21:21:46,386 [INFO] Edge inference for 7faf01c4-1e84-47bd-9d1f-41f182d7fbf8: {'is_anomaly': False, 'score': 0.2674240246712867, 'raw_score': -0.5348480493425734}
+2025-10-04 21:21:47,456 [INFO] Edge inference for 7faf01c4-1e84-47bd-9d1f-41f182d7fbf8: {'is_anomaly': True, 'score': 0.29105115428574974, 'raw_score': -0.5821023085714995}
+2025-10-04 21:21:48,526 [INFO] Edge inference for 7faf01c4-1e84-47bd-9d1f-41f182d7fbf8: {'is_anomaly': True, 'score': 0.2880176947928298, 'raw_score': -0.5760353895856596}
+2025-10-04 21:21:49,596 [INFO] Edge inference for 7faf01c4-1e84-47bd-9d1f-41f182d7fbf8: {'is_anomaly': True, 'score': 0.2882580740927705, 'raw_score': -0.576516148185541}
+2025-10-04 21:21:50,666 [INFO] Edge inference for 7faf01c4-1e84-47bd-9d1f-41f182d7fbf8: {'is_anomaly': False, 'score': 0.26927894081337755, 'raw_score': -0.5385578816267551}
+2025-10-04 21:21:51,734 [INFO] Edge inference for 7faf01c4-1e84-47bd-9d1f-41f182d7fbf8: {'is_anomaly': True, 'score': 0.2859055380349463, 'raw_score': -0.5718110760698926}
+2025-10-04 21:21:52,809 [INFO] Edge inference for 7faf01c4-1e84-47bd-9d1f-41f182d7fbf8: {'is_anomaly': True, 'score': 0.29485176129729856, 'raw_score': -0.5897035225945971}
+2025-10-04 21:21:53,879 [INFO] Edge inference for 7faf01c4-1e84-47bd-9d1f-41f182d7fbf8: {'is_anomaly': False, 'score': 0.25369649117444953, 'raw_score': -0.5073929823488991}
+2025-10-04 21:21:54,968 [INFO] Edge inference for 7faf01c4-1e84-47bd-9d1f-41f182d7fbf8: {'is_anomaly': False, 'score': 0.272807157205349, 'raw_score': -0.545614314410698}
+2025-10-04 21:21:56,094 [INFO] Edge inference for 7faf01c4-1e84-47bd-9d1f-41f182d7fbf8: {'is_anomaly': True, 'score': 0.28173352685265135, 'raw_score': -0.5634670537053027}
+2025-10-04 21:21:57,177 [INFO] Edge inference for 7faf01c4-1e84-47bd-9d1f-41f182d7fbf8: {'is_anomaly': False, 'score': 0.272216676979182, 'raw_score': -0.544433353958364}

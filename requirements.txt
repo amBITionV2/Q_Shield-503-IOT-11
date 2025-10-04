@@ -1,10 +1,18 @@
-fastapi
 uvicorn
+fastapi
 pydantic
 sqlalchemy
-pycryptodome
-paho-mqtt
 pyjwt
-requests
-cryptography
+paho-mqtt
+
+# ML Model Dependencies
+scikit-learn>=1.3.0
+tensorflow>=2.13.0
+pandas>=1.5.0
+numpy>=1.24.0
+joblib>=1.3.0
+
+matplotlib>=3.7.0  # For any plotting needs
+seaborn>=0.12.0    # For statistical plotting
+
 web3

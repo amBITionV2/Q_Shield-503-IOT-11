@@ -100,8 +100,10 @@ def send_telemetry(did: str, jwt: str):
 
 # ♡ Main: simulate device continuously 
 if __name__ == "__main__":
-    if len(sys.argv) < 2:
-        print("Usage: python device_sim.py <device_name> [server_url]")
+    if len(sys.argv) > 1:
+        device_name = sys.argv[1]
+    else:
+        print("Usage: python device_sim1.py <device_name>")
         sys.exit(1)
 
     device_name = sys.argv[1]

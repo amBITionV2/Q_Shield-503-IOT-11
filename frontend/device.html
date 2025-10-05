@@ -25,7 +25,7 @@
     <div class="container mx-auto p-4 sm:p-8">
         <header class="flex items-center justify-between mb-8">
             <div class="flex items-center">
-                <a href="index.html" class="p-2 mr-4 rounded-full bg-slate-900/50 hover:bg-cyan-600/50 transition-colors">
+                <a href="dashboard.html" class="p-2 mr-4 rounded-full bg-slate-900/50 hover:bg-cyan-600/50 transition-colors">
                     <svg class="w-6 h-6 text-cyan-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" /></svg>
                 </a>
                 <h1 class="text-3xl md:text-4xl font-bold text-cyan-400 tracking-wider title-glitch">DEVICE FLEET</h1>
@@ -111,43 +111,34 @@
     </div>
 
     <script>
-        // --- Modal Control ---
         const registrationModal = document.getElementById('registrationModal');
-        const detailsModal = document.getElementById('detailsModal');
-        
-        function openRegisterModal() { registrationModal.classList.remove('opacity-0', 'pointer-events-none'); }
-        function closeRegisterModal() { registrationModal.classList.add('opacity-0', 'pointer-events-none'); }
+        // ... (rest of your existing modal JS) ...
 
-        function openDetailsModal(device) {
-            // Populate data
-            document.getElementById('modal-device-name').innerText = device.name;
-            document.getElementById('modal-did').innerText = device.did;
-            document.getElementById('modal-pk').innerText = device.pk;
-            document.getElementById('modal-registered').innerText = device.registered;
-            document.getElementById('modal-status-text').innerText = device.status;
-            document.getElementById('modal-last-seen').innerText = device.lastSeen;
-            document.getElementById('modal-location').innerText = device.location;
-
-            // Update status indicator color
-            const statusIndicator = document.getElementById('modal-status-indicator');
-            statusIndicator.className = 'h-4 w-4 rounded-full mr-3 '; // Reset classes
-            if (device.status === 'Online') {
-                statusIndicator.classList.add('bg-green-500');
-            } else if (device.status === 'Alert') {
-                statusIndicator.classList.add('bg-red-500');
-            } else {
-                statusIndicator.classList.add('bg-yellow-500');
-            }
+        async function fetchDevices() {
+            const API_BASE = 'http://127.0.0.1:8000';
+            const response = await fetch(API_BASE + '/api/devices');
+            const devices = await response.json();
             
-            // Show modal
-            detailsModal.classList.remove('opacity-0', 'pointer-events-none');
-            detailsModal.querySelector('.modal-content').classList.remove('scale-95');
+            const tbody = document.querySelector('table tbody');
+            tbody.innerHTML = ''; // Clear existing static rows
+
+            devices.forEach(device => {
+                // NOTE: Status and Last Seen are simplified here. 
+                // Your backend would need to track this state.
+                const row = `
+                    <tr class="border-b border-gray-700 hover:bg-gray-800/50 cursor-pointer">
+                        <td class="px-6 py-4"><div class="flex items-center gap-2"><div class="h-3 w-3 rounded-full bg-green-500"></div><span>Online</span></div></td>
+                        <td class="px-6 py-4 font-medium text-gray-200">${device.device_name}</td>
+                        <td class="px-6 py-4 font-mono">${device.did.slice(0, 20)}...</td>
+                        <td class="px-6 py-4">Just now</td>
+                        <td class="px-6 py-4 text-right"><span class="font-medium text-cyan-400 hover:underline">Details</span></td>
+                    </tr>
+                `;
+                tbody.innerHTML += row;
+            });
         }
 
-        function closeDetailsModal() {
-            detailsModal.querySelector('.modal-content').classList.add('scale-95');
-            detailsModal.classList.add('opacity-0', 'pointer-events-none');
-        }
+    document.addEventListener('DOMContentLoaded', fetchDevices);
 
     </script>
 </body>

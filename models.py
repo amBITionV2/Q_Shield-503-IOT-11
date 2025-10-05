@@ -7,10 +7,11 @@ class Device(Base):
     # ♡ Primary identifiers
     did = Column(String, primary_key=True, index=True)
     device_name = Column(String, unique=True, index=True)
+    device_address = Column(String, unique=True, index=True, nullable=False)
 
     # ♡ Kyber PQC keys
-    kyber_pk = Column(String)   # Public key
-    kyber_sk = Column(String)   # Secret key
+    kyber_pk = Column(String)  # Public key
+    kyber_sk = Column(String)  # Secret key
 
     # ♡ Last known telemetry fields 
     latitude = Column(Float, nullable=True)

@@ -1,5 +1,6 @@
 import uvicorn
 from fastapi import FastAPI, HTTPException, Depends
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from sqlalchemy.orm import Session
 from database import Base, engine, get_db
@@ -14,11 +15,31 @@ import os
 from collections import deque
 import threading
 from web3 import Web3
+import ast
+import re
+
+# --- FastAPI App & CORS Middleware ---
+# This is the crucial part for fixing the error. It MUST be here.
+app = FastAPI(title="Q-Shield+ Backend")
+
+origins = [
+    "http://127.0.0.1:5000",
+    "http://localhost:5000",
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+Base.metadata.create_all(bind=engine)
 
 # --- Blockchain Config ---
 HARDHAT_RPC_URL = "http://127.0.0.1:8545"
 CONTRACT_ADDRESS = "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512"
-# Note: Ensure this path is correct for your environment
 with open(r"/home/wini/qs/Q_Shield-503-IOT-11/qshield_hardhat/qshield_hardhat/artifacts/contracts/Counter.sol/Counter.json") as f:
     contract_json = json.load(f)
     CONTRACT_ABI = contract_json["abi"]
@@ -41,12 +62,11 @@ except ImportError as e:
 # --- General Config ---
 MAX_DEVICES = 100
 TELEMETRY_INTERVAL_SECONDS = 1
-TELEMETRY_BUFFER_SIZE = 50  # Store last 50 telemetry records per device
+TELEMETRY_BUFFER_SIZE = 50
 
 # --- Logging Setup ---
 os.makedirs("logs", exist_ok=True)
 
-# Root logger
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s [%(levelname)s] %(message)s",
@@ -56,10 +76,9 @@ logging.basicConfig(
     ]
 )
 
-# Custom loggers
 def create_logger(name, filename):
     logger = logging.getLogger(name)
-    if not logger.handlers: # Prevents duplicate logs on reload
+    if not logger.handlers:
         logger.setLevel(logging.INFO)
         handler = logging.FileHandler(filename)
         handler.setFormatter(logging.Formatter("%(asctime)s [%(levelname)s] %(message)s"))
@@ -90,16 +109,20 @@ def initialize_ml_models():
     if EDGE_MODEL_AVAILABLE:
         try:
             edge_detector = IsolationForestDetector()
-            if edge_detector.model: edge_logger.info("Edge Isolation Forest model loaded successfully")
-            else: edge_logger.warning("Edge model failed to load")
+            if edge_detector.model:
+                edge_logger.info("Edge Isolation Forest model loaded successfully")
+            else:
+                edge_logger.warning("Edge model failed to load")
         except Exception as e:
             edge_logger.error(f"Failed to initialize edge model: {e}")
             edge_detector = None
     if CLOUD_MODEL_AVAILABLE:
         try:
             cloud_detector = LSTMAnomalyDetector()
-            if cloud_detector.model and cloud_detector.scaler: cloud_logger.info("Cloud LSTM model loaded successfully")
-            else: cloud_logger.warning("Cloud model failed to load")
+            if cloud_detector.model and cloud_detector.scaler:
+                cloud_logger.info("Cloud LSTM model loaded successfully")
+            else:
+                cloud_logger.warning("Cloud model failed to load")
         except Exception as e:
             cloud_logger.error(f"Failed to initialize cloud model: {e}")
             cloud_detector = None
@@ -135,9 +158,12 @@ def run_ml_inference(telemetry_data: dict, device_id: str):
 
     if edge_anomaly and edge_anomaly.get("is_anomaly"):
         if cloud_anomaly and cloud_anomaly.get("is_anomaly"):
-            if cloud_anomaly.get("severity") == "high": inference_results["combined_risk_level"] = "critical"
-            else: inference_results["combined_risk_level"] = "high"
-        else: inference_results["combined_risk_level"] = "medium"
+            if cloud_anomaly.get("severity") == "high":
+                inference_results["combined_risk_level"] = "critical"
+            else:
+                inference_results["combined_risk_level"] = "high"
+        else:
+            inference_results["combined_risk_level"] = "medium"
     elif cloud_anomaly and cloud_anomaly.get("is_anomaly"):
         inference_results["combined_risk_level"] = "medium"
     return inference_results
@@ -161,16 +187,16 @@ def hash_pair(a: str, b: str) -> str:
     return hashlib.sha256((a + b).encode()).hexdigest()
 
 def build_merkle_root(leaves: List[str]) -> str:
-    if not leaves: return ""
-    if len(leaves) == 1: return leaves[0]
-    if len(leaves) % 2 == 1: leaves.append(leaves[-1])
+    if not leaves:
+        return ""
+    if len(leaves) == 1:
+        return leaves[0]
+    if len(leaves) % 2 == 1:
+        leaves.append(leaves[-1])
     paired = [hash_pair(leaves[i], leaves[i + 1]) for i in range(0, len(leaves), 2)]
     return build_merkle_root(paired)
 
-# --- FastAPI App ---
-app = FastAPI(title="Q-Shield+ Backend")
-Base.metadata.create_all(bind=engine)
-
+# --- FastAPI Startup ---
 @app.on_event("startup")
 async def startup_event():
     initialize_ml_models()
@@ -219,7 +245,8 @@ def register_device(req: RegisterRequest, db: Session = Depends(get_db)):
     pk, sk = kyber_generate_keypair()
     device = Device(device_name=req.device_name, did=did, device_address=eth_address, kyber_pk=pk.hex(), kyber_sk=sk.hex())
     db.add(device)
-    db.commit(); db.refresh(device)
+    db.commit()
+    db.refresh(device)
     token = create_jwt({"device_name": req.device_name, "did": did})
     return {"did": did, "jwt": token, "kyber_public_key": pk.hex(), "device_private_key": private_key}
 
@@ -227,9 +254,6 @@ def register_device(req: RegisterRequest, db: Session = Depends(get_db)):
 def ingest_telemetry(payload: TelemetryIn, db: Session = Depends(get_db)):
     input_logger.info(f"Received telemetry: {payload.dict()}")
     
-    # Server-side validation (can be enabled as needed)
-    # if not (1.8 <= payload.current <= 2.94): ...
-
     device = db.query(Device).filter(Device.did == payload.did).first()
     if not device:
         raise HTTPException(status_code=404, detail="Device not found")
@@ -243,8 +267,14 @@ def ingest_telemetry(payload: TelemetryIn, db: Session = Depends(get_db)):
         debug_logger.warning(f"Geofence ALERT for {payload.did} | Distance: {distance:.2f} meters")
 
     timestamp = payload.timestamp or datetime.now(timezone.utc).isoformat()
-    telemetry_for_ml = {k: v for k, v in payload.dict().items() if k in {"current", "pressure", "temperature", "thermocouple", "voltage"}}
-    telemetry_for_ml["timestamp"] = timestamp
+    telemetry_for_ml = {
+        "current": payload.current,
+        "pressure": payload.pressure,
+        "temperature": payload.temperature,
+        "thermocouple": payload.thermocouple,
+        "voltage": payload.voltage,
+        "timestamp": timestamp
+    }
     
     add_to_telemetry_buffer(payload.did, telemetry_for_ml)
     ml_results = run_ml_inference(telemetry_for_ml, payload.did)
@@ -319,9 +349,101 @@ def get_device_telemetry_history(device_id: str):
 
 @app.post("/analyze_telemetry")
 def analyze_telemetry_manually(payload: TelemetryIn):
-    telemetry_data = {k: v for k, v in payload.dict().items() if k in {"current", "pressure", "temperature", "thermocouple", "voltage"}}
+    telemetry_data = {
+        "current": payload.current,
+        "pressure": payload.pressure,
+        "temperature": payload.temperature,
+        "thermocouple": payload.thermocouple,
+        "voltage": payload.voltage
+    }
     results = run_ml_inference(telemetry_data, payload.did)
     return {"telemetry": telemetry_data, "analysis": results}
+
+@app.get("/api/devices")
+def get_all_devices(db: Session = Depends(get_db)):
+    devices = db.query(Device).all()
+    return devices
+
+@app.get("/api/alerts")
+def get_alerts():
+    alerts = []
+    log_file_path = "logs/output_telemetry.log"
+    if not os.path.exists(log_file_path):
+        return alerts
+    
+    with open(log_file_path, "r") as f:
+        lines = f.readlines()[-100:]
+    
+    for line in reversed(lines):
+        if 'Processed telemetry:' in line:
+            try:
+                dict_str = line.split('Processed telemetry: ')[-1].strip()
+                log_data = json.loads(dict_str)
+                if log_data.get("geo_fence_alert") or (log_data.get("ml_inference") and log_data["ml_inference"]["combined_risk_level"] != "normal"):
+                    alerts.append(log_data)
+            except Exception:
+                continue
+    return alerts
+
+@app.get("/api/input_log")
+def get_input_log():
+    log_path = "/home/wini/qs/Q_Shield-503-IOT-11/logs/input_telemetry.log"
+    if not os.path.exists(log_path):
+        return {"lines": ["Log file not found."]}
+    with open(log_path) as f:
+        lines = f.readlines()[-100:]
+    return {"lines": lines}
+
+@app.get("/api/output_log")
+def get_output_log():
+    log_path = "/home/wini/qs/Q_Shield-503-IOT-11/logs/output_telemetry.log"
+    if not os.path.exists(log_path):
+        return {"lines": ["Log file not found."]}
+    with open(log_path) as f:
+        lines = f.readlines()[-100:]
+    return {"lines": lines}
+
+@app.get("/api/edge_inference")
+def get_edge_inference_log():
+    path = "/home/wini/qs/Q_Shield-503-IOT-11/logs/edge_inference.log"
+    if not os.path.exists(path):
+        return {"lines": ["Edge inference log not found."]}
+    with open(path) as f:
+        lines = f.readlines()[-100:]
+    return {"lines": lines}
+
+@app.get("/api/cloud_inference")
+def get_cloud_inference_log():
+    path = "/home/wini/qs/Q_Shield-503-IOT-11/logs/cloud_inference.log"
+    if not os.path.exists(path):
+        return {"lines": ["Cloud inference log not found."]}
+    with open(path) as f:
+        lines = f.readlines()[-100:]
+    return {"lines": lines}
+
+def extract_recent_anomalies(file_path: str, max_count: int):
+    anomalies = []
+    anomaly_pattern = re.compile(r"'is_anomaly': True", re.IGNORECASE)
+    try:
+        with open(file_path, 'r') as f:
+            for line in reversed(f.readlines()):
+                if anomaly_pattern.search(line):
+                    anomalies.append(line.strip())
+                if len(anomalies) >= max_count:
+                    break
+        return anomalies[::-1]
+    except FileNotFoundError:
+        return [f"Log file not found: {file_path}"]
+
+@app.get("/api/recent_edge_anomalies")
+def recent_edge_anomalies():
+    path = "/home/wini/qs/Q_Shield-503-IOT-11/logs/edge_inference.log"
+    return {"anomalies": extract_recent_anomalies(path, 5)}
+
+@app.get("/api/recent_cloud_anomalies")
+def recent_cloud_anomalies():
+    path = "/home/wini/qs/Q_Shield-503-IOT-11/logs/cloud_inference.log"
+    return {"anomaly": extract_recent_anomalies(path, 1)}
 
 if __name__ == "__main__":
     uvicorn.run("server:app", host="0.0.0.0", port=8000, reload=True)

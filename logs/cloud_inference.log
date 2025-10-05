@@ -16,3 +16,79 @@
 2025-10-04 21:21:55,065 [INFO] Cloud inference for 7faf01c4-1e84-47bd-9d1f-41f182d7fbf8: {'score': 1.0, 'is_anomaly': True, 'severity': 'high', 'raw_mse': 0.19587980210781097}
 2025-10-04 21:21:56,154 [INFO] Cloud inference for 7faf01c4-1e84-47bd-9d1f-41f182d7fbf8: {'score': 1.0, 'is_anomaly': True, 'severity': 'high', 'raw_mse': 0.19262109696865082}
 2025-10-04 21:21:57,244 [INFO] Cloud inference for 7faf01c4-1e84-47bd-9d1f-41f182d7fbf8: {'score': 1.0, 'is_anomaly': True, 'severity': 'high', 'raw_mse': 0.18338274955749512}
+2025-10-04 22:45:37,117 [INFO] Cloud LSTM model loaded successfully
+2025-10-04 23:07:57,338 [INFO] Cloud LSTM model loaded successfully
+2025-10-04 23:08:05,970 [INFO] Cloud LSTM model loaded successfully
+2025-10-04 23:08:09,834 [INFO] Cloud LSTM model loaded successfully
+2025-10-04 23:08:23,095 [INFO] Cloud LSTM model loaded successfully
+2025-10-04 23:28:57,280 [INFO] Cloud LSTM model loaded successfully
+2025-10-04 23:31:22,182 [INFO] Cloud LSTM model loaded successfully
+2025-10-04 23:52:32,715 [INFO] Cloud LSTM model loaded successfully
+2025-10-04 23:54:29,405 [INFO] Cloud LSTM model loaded successfully
+2025-10-04 23:54:39,373 [INFO] Cloud LSTM model loaded successfully
+2025-10-04 23:58:08,279 [INFO] Cloud inference for 7faf01c4-1e84-47bd-9d1f-41f182d7fbf8: {'score': 1.0, 'is_anomaly': True, 'severity': 'high', 'raw_mse': 0.19825220108032227}
+2025-10-04 23:58:09,360 [INFO] Cloud inference for 7faf01c4-1e84-47bd-9d1f-41f182d7fbf8: {'score': 1.0, 'is_anomaly': True, 'severity': 'high', 'raw_mse': 0.19412674009799957}
+2025-10-04 23:58:10,437 [INFO] Cloud inference for 7faf01c4-1e84-47bd-9d1f-41f182d7fbf8: {'score': 1.0, 'is_anomaly': True, 'severity': 'high', 'raw_mse': 0.1801196187734604}
+2025-10-04 23:58:11,514 [INFO] Cloud inference for 7faf01c4-1e84-47bd-9d1f-41f182d7fbf8: {'score': 1.0, 'is_anomaly': True, 'severity': 'high', 'raw_mse': 0.17431920766830444}
+2025-10-04 23:58:12,586 [INFO] Cloud inference for 7faf01c4-1e84-47bd-9d1f-41f182d7fbf8: {'score': 1.0, 'is_anomaly': True, 'severity': 'high', 'raw_mse': 0.18105179071426392}
+2025-10-04 23:58:13,655 [INFO] Cloud inference for 7faf01c4-1e84-47bd-9d1f-41f182d7fbf8: {'score': 1.0, 'is_anomaly': True, 'severity': 'high', 'raw_mse': 0.18781787157058716}
+2025-10-04 23:58:14,724 [INFO] Cloud inference for 7faf01c4-1e84-47bd-9d1f-41f182d7fbf8: {'score': 1.0, 'is_anomaly': True, 'severity': 'high', 'raw_mse': 0.19331206381320953}
+2025-10-04 23:58:15,794 [INFO] Cloud inference for 7faf01c4-1e84-47bd-9d1f-41f182d7fbf8: {'score': 1.0, 'is_anomaly': True, 'severity': 'high', 'raw_mse': 0.170176163315773}
+2025-10-04 23:58:16,861 [INFO] Cloud inference for 7faf01c4-1e84-47bd-9d1f-41f182d7fbf8: {'score': 1.0, 'is_anomaly': True, 'severity': 'high', 'raw_mse': 0.1816851794719696}
+2025-10-04 23:58:17,951 [INFO] Cloud inference for 7faf01c4-1e84-47bd-9d1f-41f182d7fbf8: {'score': 1.0, 'is_anomaly': True, 'severity': 'high', 'raw_mse': 0.18996337056159973}
+2025-10-04 23:58:19,020 [INFO] Cloud inference for 7faf01c4-1e84-47bd-9d1f-41f182d7fbf8: {'score': 1.0, 'is_anomaly': True, 'severity': 'high', 'raw_mse': 0.19466468691825867}
+2025-10-04 23:58:20,094 [INFO] Cloud inference for 7faf01c4-1e84-47bd-9d1f-41f182d7fbf8: {'score': 1.0, 'is_anomaly': True, 'severity': 'high', 'raw_mse': 0.20904016494750977}
+2025-10-04 23:58:21,163 [INFO] Cloud inference for 7faf01c4-1e84-47bd-9d1f-41f182d7fbf8: {'score': 1.0, 'is_anomaly': True, 'severity': 'high', 'raw_mse': 0.20681554079055786}
+2025-10-04 23:58:22,234 [INFO] Cloud inference for 7faf01c4-1e84-47bd-9d1f-41f182d7fbf8: {'score': 1.0, 'is_anomaly': True, 'severity': 'high', 'raw_mse': 0.22791114449501038}
+2025-10-04 23:58:23,312 [INFO] Cloud inference for 7faf01c4-1e84-47bd-9d1f-41f182d7fbf8: {'score': 1.0, 'is_anomaly': True, 'severity': 'high', 'raw_mse': 0.20808501541614532}
+2025-10-04 23:58:24,378 [INFO] Cloud inference for 7faf01c4-1e84-47bd-9d1f-41f182d7fbf8: {'score': 1.0, 'is_anomaly': True, 'severity': 'high', 'raw_mse': 0.21513493359088898}
+2025-10-04 23:58:25,447 [INFO] Cloud inference for 7faf01c4-1e84-47bd-9d1f-41f182d7fbf8: {'score': 1.0, 'is_anomaly': True, 'severity': 'high', 'raw_mse': 0.20638808608055115}
+2025-10-04 23:58:26,516 [INFO] Cloud inference for 7faf01c4-1e84-47bd-9d1f-41f182d7fbf8: {'score': 1.0, 'is_anomaly': True, 'severity': 'high', 'raw_mse': 0.22114324569702148}
+2025-10-04 23:58:27,586 [INFO] Cloud inference for 7faf01c4-1e84-47bd-9d1f-41f182d7fbf8: {'score': 1.0, 'is_anomaly': True, 'severity': 'high', 'raw_mse': 0.19309969246387482}
+2025-10-04 23:58:29,161 [INFO] Cloud inference for 7faf01c4-1e84-47bd-9d1f-41f182d7fbf8: {'score': 1.0, 'is_anomaly': True, 'severity': 'high', 'raw_mse': 0.199626162648201}
+2025-10-04 23:58:30,232 [INFO] Cloud inference for 7faf01c4-1e84-47bd-9d1f-41f182d7fbf8: {'score': 1.0, 'is_anomaly': True, 'severity': 'high', 'raw_mse': 0.1966649889945984}
+2025-10-04 23:58:31,301 [INFO] Cloud inference for 7faf01c4-1e84-47bd-9d1f-41f182d7fbf8: {'score': 1.0, 'is_anomaly': True, 'severity': 'high', 'raw_mse': 0.20028279721736908}
+2025-10-04 23:58:32,373 [INFO] Cloud inference for 7faf01c4-1e84-47bd-9d1f-41f182d7fbf8: {'score': 1.0, 'is_anomaly': True, 'severity': 'high', 'raw_mse': 0.20567569136619568}
+2025-10-05 00:02:29,866 [INFO] Cloud LSTM model loaded successfully
+2025-10-05 00:02:36,435 [INFO] Cloud LSTM model loaded successfully
+2025-10-05 00:02:40,171 [INFO] Cloud LSTM model loaded successfully
+2025-10-05 00:04:17,397 [INFO] Cloud LSTM model loaded successfully
+2025-10-05 00:04:52,286 [INFO] Cloud inference for did:ethr:0xF5FF151B15355D889C7E559c0A425d9E4E73DC5c: {'score': 1.0, 'is_anomaly': True, 'severity': 'high', 'raw_mse': 0.2053932398557663}
+2025-10-05 00:04:53,367 [INFO] Cloud inference for did:ethr:0xF5FF151B15355D889C7E559c0A425d9E4E73DC5c: {'score': 1.0, 'is_anomaly': True, 'severity': 'high', 'raw_mse': 0.19407667219638824}
+2025-10-05 00:04:54,470 [INFO] Cloud inference for did:ethr:0xF5FF151B15355D889C7E559c0A425d9E4E73DC5c: {'score': 1.0, 'is_anomaly': True, 'severity': 'high', 'raw_mse': 0.18807314336299896}
+2025-10-05 00:04:55,548 [INFO] Cloud inference for did:ethr:0xF5FF151B15355D889C7E559c0A425d9E4E73DC5c: {'score': 1.0, 'is_anomaly': True, 'severity': 'high', 'raw_mse': 0.18730264902114868}
+2025-10-05 00:04:56,619 [INFO] Cloud inference for did:ethr:0xF5FF151B15355D889C7E559c0A425d9E4E73DC5c: {'score': 1.0, 'is_anomaly': True, 'severity': 'high', 'raw_mse': 0.18784813582897186}
+2025-10-05 00:04:57,688 [INFO] Cloud inference for did:ethr:0xF5FF151B15355D889C7E559c0A425d9E4E73DC5c: {'score': 1.0, 'is_anomaly': True, 'severity': 'high', 'raw_mse': 0.1864282786846161}
+2025-10-05 00:04:58,761 [INFO] Cloud inference for did:ethr:0xF5FF151B15355D889C7E559c0A425d9E4E73DC5c: {'score': 1.0, 'is_anomaly': True, 'severity': 'high', 'raw_mse': 0.17877459526062012}
+2025-10-05 00:04:59,834 [INFO] Cloud inference for did:ethr:0xF5FF151B15355D889C7E559c0A425d9E4E73DC5c: {'score': 1.0, 'is_anomaly': True, 'severity': 'high', 'raw_mse': 0.17259587347507477}
+2025-10-05 00:05:00,904 [INFO] Cloud inference for did:ethr:0xF5FF151B15355D889C7E559c0A425d9E4E73DC5c: {'score': 1.0, 'is_anomaly': True, 'severity': 'high', 'raw_mse': 0.17010951042175293}
+2025-10-05 00:05:01,973 [INFO] Cloud inference for did:ethr:0xF5FF151B15355D889C7E559c0A425d9E4E73DC5c: {'score': 1.0, 'is_anomaly': True, 'severity': 'high', 'raw_mse': 0.16366854310035706}
+2025-10-05 00:05:03,613 [INFO] Cloud inference for did:ethr:0xF5FF151B15355D889C7E559c0A425d9E4E73DC5c: {'score': 1.0, 'is_anomaly': True, 'severity': 'high', 'raw_mse': 0.15900292992591858}
+2025-10-05 00:05:04,684 [INFO] Cloud inference for did:ethr:0xF5FF151B15355D889C7E559c0A425d9E4E73DC5c: {'score': 1.0, 'is_anomaly': True, 'severity': 'high', 'raw_mse': 0.1658821702003479}
+2025-10-05 00:05:05,759 [INFO] Cloud inference for did:ethr:0xF5FF151B15355D889C7E559c0A425d9E4E73DC5c: {'score': 1.0, 'is_anomaly': True, 'severity': 'high', 'raw_mse': 0.18469220399856567}
+2025-10-05 00:05:06,828 [INFO] Cloud inference for did:ethr:0xF5FF151B15355D889C7E559c0A425d9E4E73DC5c: {'score': 1.0, 'is_anomaly': True, 'severity': 'high', 'raw_mse': 0.18449999392032623}
+2025-10-05 00:05:07,898 [INFO] Cloud inference for did:ethr:0xF5FF151B15355D889C7E559c0A425d9E4E73DC5c: {'score': 1.0, 'is_anomaly': True, 'severity': 'high', 'raw_mse': 0.1945263147354126}
+2025-10-05 00:05:08,963 [INFO] Cloud inference for did:ethr:0xF5FF151B15355D889C7E559c0A425d9E4E73DC5c: {'score': 1.0, 'is_anomaly': True, 'severity': 'high', 'raw_mse': 0.19667819142341614}
+2025-10-05 00:05:10,030 [INFO] Cloud inference for did:ethr:0xF5FF151B15355D889C7E559c0A425d9E4E73DC5c: {'score': 1.0, 'is_anomaly': True, 'severity': 'high', 'raw_mse': 0.20112000405788422}
+2025-10-05 00:05:11,094 [INFO] Cloud inference for did:ethr:0xF5FF151B15355D889C7E559c0A425d9E4E73DC5c: {'score': 1.0, 'is_anomaly': True, 'severity': 'high', 'raw_mse': 0.1813296377658844}
+2025-10-05 00:05:12,161 [INFO] Cloud inference for did:ethr:0xF5FF151B15355D889C7E559c0A425d9E4E73DC5c: {'score': 1.0, 'is_anomaly': True, 'severity': 'high', 'raw_mse': 0.18328922986984253}
+2025-10-05 00:05:13,226 [INFO] Cloud inference for did:ethr:0xF5FF151B15355D889C7E559c0A425d9E4E73DC5c: {'score': 1.0, 'is_anomaly': True, 'severity': 'high', 'raw_mse': 0.19236740469932556}
+2025-10-05 00:05:14,293 [INFO] Cloud inference for did:ethr:0xF5FF151B15355D889C7E559c0A425d9E4E73DC5c: {'score': 1.0, 'is_anomaly': True, 'severity': 'high', 'raw_mse': 0.18667495250701904}
+2025-10-05 00:05:15,366 [INFO] Cloud inference for did:ethr:0xF5FF151B15355D889C7E559c0A425d9E4E73DC5c: {'score': 1.0, 'is_anomaly': True, 'severity': 'high', 'raw_mse': 0.18101900815963745}
+2025-10-05 00:05:16,436 [INFO] Cloud inference for did:ethr:0xF5FF151B15355D889C7E559c0A425d9E4E73DC5c: {'score': 1.0, 'is_anomaly': True, 'severity': 'high', 'raw_mse': 0.17645703256130219}
+2025-10-05 00:05:17,507 [INFO] Cloud inference for did:ethr:0xF5FF151B15355D889C7E559c0A425d9E4E73DC5c: {'score': 1.0, 'is_anomaly': True, 'severity': 'high', 'raw_mse': 0.1822293996810913}
+2025-10-05 00:05:18,575 [INFO] Cloud inference for did:ethr:0xF5FF151B15355D889C7E559c0A425d9E4E73DC5c: {'score': 1.0, 'is_anomaly': True, 'severity': 'high', 'raw_mse': 0.18023915588855743}
+2025-10-05 00:05:19,654 [INFO] Cloud inference for did:ethr:0xF5FF151B15355D889C7E559c0A425d9E4E73DC5c: {'score': 1.0, 'is_anomaly': True, 'severity': 'high', 'raw_mse': 0.18117934465408325}
+2025-10-05 00:05:20,723 [INFO] Cloud inference for did:ethr:0xF5FF151B15355D889C7E559c0A425d9E4E73DC5c: {'score': 1.0, 'is_anomaly': True, 'severity': 'high', 'raw_mse': 0.188687264919281}
+2025-10-05 00:05:21,792 [INFO] Cloud inference for did:ethr:0xF5FF151B15355D889C7E559c0A425d9E4E73DC5c: {'score': 1.0, 'is_anomaly': True, 'severity': 'high', 'raw_mse': 0.17528538405895233}
+2025-10-05 00:05:22,864 [INFO] Cloud inference for did:ethr:0xF5FF151B15355D889C7E559c0A425d9E4E73DC5c: {'score': 1.0, 'is_anomaly': True, 'severity': 'high', 'raw_mse': 0.1670829802751541}
+2025-10-05 00:05:23,936 [INFO] Cloud inference for did:ethr:0xF5FF151B15355D889C7E559c0A425d9E4E73DC5c: {'score': 1.0, 'is_anomaly': True, 'severity': 'high', 'raw_mse': 0.16710980236530304}
+2025-10-05 00:05:25,000 [INFO] Cloud inference for did:ethr:0xF5FF151B15355D889C7E559c0A425d9E4E73DC5c: {'score': 1.0, 'is_anomaly': True, 'severity': 'high', 'raw_mse': 0.1661994457244873}
+2025-10-05 00:05:26,067 [INFO] Cloud inference for did:ethr:0xF5FF151B15355D889C7E559c0A425d9E4E73DC5c: {'score': 1.0, 'is_anomaly': True, 'severity': 'high', 'raw_mse': 0.18056897819042206}
+2025-10-05 00:05:27,131 [INFO] Cloud inference for did:ethr:0xF5FF151B15355D889C7E559c0A425d9E4E73DC5c: {'score': 1.0, 'is_anomaly': True, 'severity': 'high', 'raw_mse': 0.17716069519519806}
+2025-10-05 00:05:28,206 [INFO] Cloud inference for did:ethr:0xF5FF151B15355D889C7E559c0A425d9E4E73DC5c: {'score': 1.0, 'is_anomaly': True, 'severity': 'high', 'raw_mse': 0.19029438495635986}
+2025-10-05 00:05:29,278 [INFO] Cloud inference for did:ethr:0xF5FF151B15355D889C7E559c0A425d9E4E73DC5c: {'score': 1.0, 'is_anomaly': True, 'severity': 'high', 'raw_mse': 0.19413380324840546}
+2025-10-05 00:05:30,348 [INFO] Cloud inference for did:ethr:0xF5FF151B15355D889C7E559c0A425d9E4E73DC5c: {'score': 1.0, 'is_anomaly': True, 'severity': 'high', 'raw_mse': 0.20590940117835999}
+2025-10-05 00:05:31,413 [INFO] Cloud inference for did:ethr:0xF5FF151B15355D889C7E559c0A425d9E4E73DC5c: {'score': 1.0, 'is_anomaly': True, 'severity': 'high', 'raw_mse': 0.19532354176044464}
+2025-10-05 00:06:20,303 [INFO] Cloud LSTM model loaded successfully
+2025-10-05 00:06:24,280 [INFO] Cloud LSTM model loaded successfully
